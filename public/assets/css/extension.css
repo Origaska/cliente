@@ -1,0 +1,90 @@
+.lista-principal{
+    width: 90%;
+    height: 90%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+}
+.item {
+    border: 1px solid #000;
+    list-style: none;
+    color: #000;
+    width:300px;
+    text-align: center;
+    padding: 16px;
+    margin: 8px;
+    font-family: sans-serif;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0px 0px 30px 9px rgba(0,0,0,0.75);
+    text-decoration: none;
+}
+.item:hover{
+    background-color: #ccc;
+}
+.window-chat{
+    padding: 16px;
+}
+
+.window-center{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-chat{
+    width: 600px;
+    height: 500px;
+    background-color: #eee;
+    border-radius: 10px;
+    padding:10px;
+}
+
+.chat{
+    width: 100%;
+    height: 92%;
+    background-color: rgb(254, 254, 253);
+    margin-bottom:10px;
+    overflow-y: scroll ;
+    -ms-scrollbar-track-color: green;
+}
+
+
+.envios{
+    width: 100%;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+.envios input{
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 85%;
+    padding-left: 16px;
+}
+.recibido{
+    width: 100%;
+    font-family: sans-serif;
+    font-size:16px;
+    text-align: left;
+    padding-left: 16px;
+}
+
+.centrar{
+    align-items:center;
+    justify-content:center;
+}
+
+.pantalla{
+    width:90%;
+    height:90%;
+}
+
+.img-recibido{
+    width: 100px;
+    height:70px;
+    padding-left: 16px;
+}
