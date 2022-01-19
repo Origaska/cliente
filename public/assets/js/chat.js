@@ -20,7 +20,7 @@ btnEnviar.addEventListener("click", () =>{
     }
 })
 btnArchivos.addEventListener("click", () =>{
-    ipcRenderer.send('file:open',"file")
+    ipcRenderer.send('file:open')
 })
 
 
@@ -31,6 +31,7 @@ ipcRenderer.on("mensaje-normal",(evt,data) => {
 
 ipcRenderer.on("file:getfile",(evt,file) => {
     // console.log("si")
+    //Es una imagen lo que recibe
     alert("Presiona Enviar para compartir el archivo")
     normal = false
     archivo = file
@@ -38,7 +39,7 @@ ipcRenderer.on("file:getfile",(evt,file) => {
 
 ipcRenderer.on("mensaje-archivo",(evt,base64) => {
     // console.log(base64)
-    contenedor_chat.innerHTML += '<img class="img-recibido" src=data:image/png;base64, '+ base64 +'/>'
+    contenedor_chat.innerHTML += `<a href="data:image/png;base64,${base64.toString()}" download><img class="img-recibido" src="data:image/png;base64,${base64.toString()}"/></a>`
 })
 
 

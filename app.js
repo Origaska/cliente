@@ -2,9 +2,10 @@ const { app, BrowserWindow, ipcMain, dialog } = require('electron')
 const io = require('socket.io-client')
 const screenshot = require("screenshot-desktop")
 const fs =  require('fs')
-const socket = io('http://localhost:3000')
+const socket = io('https://fathomless-island-54286.herokuapp.com/')
 
 var win;
+app.disableHardwareAcceleration()
 const createWindow = () => {
       win = new BrowserWindow({
       width: 800,
@@ -27,23 +28,23 @@ app.whenReady().then(() => {
 
 
 app.on('window-all-closed', function () {
-  if (process.platform !== 'darwin') app.quit()
+  app.quit()
 })
 
 var base64;
 /*eventos con HTML */
-ipcMain.on("file:open",(event,e) =>{
+ipcMain.on("file:open",(event) =>{
   dialog.showOpenDialog({
+    title:"Selecciona una imagen",
     properties:['openFile'],
     filters:[{
       name:'Imagenes',
       extensions:['jpg','png']
     }]
   }).then((result) => {
-    if (!result.canceled || result.filePaths != undefined) {
       base64 = fs.readFileSync(result.filePaths[0], 'base64') 
-      event.reply("file:getfile",base64.toString())
-    }
+      // console.log(base64)
+      event.reply("file:getfile",base64)
   })
 })
 
